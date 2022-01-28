@@ -9,7 +9,7 @@ def call(){
         withSonarQubeEnv('sonarqube') {
             sh "echo 'Calling sonar by ID!'"
             // Run Maven on a Unix agent to execute Sonar.
-            sh 'sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
+            sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
         }
     }
 

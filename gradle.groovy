@@ -9,7 +9,7 @@ def call(){
         withSonarQubeEnv('sonarqube') {
             sh "echo 'Calling sonar by ID!'"
             // Run Maven on a Unix agent to execute Sonar.
-            sh 'sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
+            sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
         }
     }
 
@@ -26,7 +26,8 @@ def call(){
                 mavenAssetList: [
                     [   classifier: '',
                         extension: '',
-                        filePath: 'DevOpsUsach2020-0.0.1.jar'
+                        //filePath: 'DevOpsUsach2020-0.0.1.jar'
+                        filePath: 'build/libs/DevOpsUsach2020-0.0.1.jar'
                     ]
                 ],
                 mavenCoordinate: [

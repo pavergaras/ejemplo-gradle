@@ -32,10 +32,10 @@ pipeline {
             post{
                 //sh "POST Steps'"
                 success{
-                    slackSend color: 'good', message: "[Su Nombre] [${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
+                    slackSend color: 'good', message: "[Priscila Vergara] [JOB: ${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
                 }
                 failure{
-                    slackSend color: 'danger', message: "[Su Nombre] [${env.JOB_NAME}] [${BUILD_TAG}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
+                    slackSend color: 'danger', message: "[Priscila Vergara] [JOB: ${env.JOB_NAME}] [${BUILD_TAG}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
                 }
             }
 

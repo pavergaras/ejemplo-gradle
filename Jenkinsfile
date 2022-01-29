@@ -30,7 +30,7 @@ pipeline {
                 }
             }
             post{
-                //sh "POST Steps'"
+                
                 success{
                     slackSend color: 'good', message: "[Priscila Vergara] [JOB: ${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
                 }

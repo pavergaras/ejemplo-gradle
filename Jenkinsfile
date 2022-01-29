@@ -3,6 +3,7 @@ pipeline {
     environment {
         NEXUS_USER = credentials('user-nexus')
         NEXUS_PASS = credentials('password-nexus')
+        TOKEN_SLACK = credentials('token_slack')
     }
     parameters {
         choice(
@@ -31,10 +32,10 @@ pipeline {
             post{
                 //sh "POST Steps'"
                 success{
-                    slackSend color: 'good', message: "[Su Nombre] [${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'Pe41ifwrIwfQCQfI4VCVkd9f'
+                    slackSend color: 'good', message: "[Su Nombre] [${JOB_NAME}] [${BUILD_TAG}] Ejecucion Exitosa", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
                 }
                 failure{
-                    slackSend color: 'danger', message: "[Su Nombre] [${env.JOB_NAME}] [${BUILD_TAG}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'Pe41ifwrIwfQCQfI4VCVkd9f'
+                    slackSend color: 'danger', message: "[Su Nombre] [${env.JOB_NAME}] [${BUILD_TAG}] Ejecucion fallida en stage [${env.TAREA}]", teamDomain: 'dipdevopsusac-tr94431', tokenCredentialId: 'token_slack'
                 }
             }
 
